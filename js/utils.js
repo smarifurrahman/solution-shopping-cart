@@ -7,6 +7,9 @@ function updateInputFiledValueById(inputFieldId, updateType) {
             newInputFieldValue = inputFieldValue + 1;
             break;
         case 'minus':
+            if(inputFieldValue <= 0) {
+                break;
+            }
             newInputFieldValue = inputFieldValue - 1;
             break;
     }

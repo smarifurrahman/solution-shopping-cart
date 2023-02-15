@@ -4,7 +4,13 @@ setTextElementValueById('phone-total-price', perPhonePrice);
 setTextElementValueById('case-total-price', perCasePrice);
 
 document.getElementById('phone-quantity-field').addEventListener('input', function (event) {
-    const newPhoneQuantity = event.target.value;
+    let newPhoneQuantity = event.target.value;
+
+    if(newPhoneQuantity < 0) {
+        event.target.value = 0;
+        newPhoneQuantity = 0;
+    }
+
     const perPhonePrice = 1219;
     setItemTotalPrice('phone-total-price', newPhoneQuantity, perPhonePrice);
     calculateTotal();
@@ -12,6 +18,12 @@ document.getElementById('phone-quantity-field').addEventListener('input', functi
 
 document.getElementById('case-quantity-field').addEventListener('input', function (event) {
     const newCaseQuantity = event.target.value;
+
+    if(newCaseQuantity < 0) {
+        event.target.value = 0;
+        newCaseQuantity = 0;
+    }
+
     const perCasePrice = 59;
     setItemTotalPrice('case-total-price', newCaseQuantity, perCasePrice);
     calculateTotal();
