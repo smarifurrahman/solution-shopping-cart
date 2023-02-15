@@ -3,6 +3,8 @@ document.getElementById('btn-case-plus').addEventListener('click', function () {
     
     const perCasePrice = 59;
     setItemTotalPrice('case-total-price', newCaseQuantity, perCasePrice);
+
+    calculateTotal();
 });
 
 document.getElementById('btn-case-minus').addEventListener('click', function () {
@@ -10,4 +12,6 @@ document.getElementById('btn-case-minus').addEventListener('click', function () 
 
     const perCasePrice = 59;
     setItemTotalPrice('case-total-price', newCaseQuantity, perCasePrice);
+
+    calculateTotal();
 });

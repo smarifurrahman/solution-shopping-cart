@@ -3,6 +3,8 @@ document.getElementById('btn-phone-plus').addEventListener('click', function() {
 
     const perPhonePrice = 1219;
     setItemTotalPrice('phone-total-price', newPhoneQuantity, perPhonePrice);
+
+    calculateTotal();
 });
 
 document.getElementById('btn-phone-minus').addEventListener('click', function() {
@@ -10,4 +12,6 @@ document.getElementById('btn-phone-minus').addEventListener('click', function() 
 
     const perPhonePrice = 1219;
     setItemTotalPrice('phone-total-price', newPhoneQuantity, perPhonePrice);
+
+    calculateTotal();
 });

@@ -21,32 +21,27 @@ function setItemTotalPrice(elementId, itemQuantity, perItemPrice) {
     element.innerText = totalPrice;
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-// function increaseInputFiledValue(inputFieldId) {
-//     const inputField = document.getElementById(inputFieldId);
-//     const inputFieldValue = parseInt(inputField.value);
-//     const newInputFieldValue = inputFieldValue + 1;
-//     inputField.value = newInputFieldValue;
-// }
-
-/* function getInputFieldValueById(inputFieldId) {
-    const inputField = document.getElementById(inputFieldId);
-    const inputValue = parseInt(inputField.value);
-    return inputValue;
+function getTextElementValueById(elementId) {
+    const element = document.getElementById(elementId);
+    return parseFloat(element.innerText);
 }
 
-function setInputFieldValueById(inputFieldId, inputFieldValue) {
-    const inputField = document.getElementById(inputFieldId);
-    inputField.value = inputFieldValue;
-} */
+function setTextElementValueById(elementId, elementValue) {
+    const element = document.getElementById(elementId);
+    element.innerText = elementValue;
+}
+
+
+function calculateTotal() {
+    const caseTotalPrice = getTextElementValueById('case-total-price');
+    const phoneTotalPrice = getTextElementValueById('phone-total-price');
+    const subTotal = caseTotalPrice + phoneTotalPrice;
+    setTextElementValueById('sub-total', subTotal);
+
+    const taxAmount = subTotal * 0.1;
+    const taxAmountToFixed = parseFloat(taxAmount.toFixed(2));
+    setTextElementValueById('tax-amount', taxAmountToFixed);
+
+    const finalTotal = subTotal + taxAmountToFixed;
+    setTextElementValueById('final-total', finalTotal);
+}
