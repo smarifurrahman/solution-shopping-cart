@@ -15,3 +15,7 @@ document.getElementById('btn-case-minus').addEventListener('click', function () 
 
     calculateTotal();
 });
+
+document.getElementById('remove-case').addEventListener('click', function () {
+    removeItemById('item-case-container', 'case-total-price');
+});

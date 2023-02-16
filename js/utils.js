@@ -7,7 +7,7 @@ function updateInputFiledValueById(inputFieldId, updateType) {
             newInputFieldValue = inputFieldValue + 1;
             break;
         case 'minus':
-            if(inputFieldValue <= 0) {
+            if (inputFieldValue <= 0) {
                 break;
             }
             newInputFieldValue = inputFieldValue - 1;
@@ -41,10 +41,34 @@ function calculateTotal() {
     const subTotal = caseTotalPrice + phoneTotalPrice;
     setTextElementValueById('sub-total', subTotal);
 
+    const taxAmount =  calculateTax(subTotal);
+
+    calculateFinalTotal(subTotal, taxAmount);
+}
+
+function calculateTax(subTotal) {
     const taxAmount = subTotal * 0.1;
     const taxAmountToFixed = parseFloat(taxAmount.toFixed(2));
     setTextElementValueById('tax-amount', taxAmountToFixed);
+    return taxAmountToFixed;
+}
 
-    const finalTotal = subTotal + taxAmountToFixed;
+function calculateFinalTotal(subTotal, taxAmount) {
+    const finalTotal = subTotal + taxAmount;
     setTextElementValueById('final-total', finalTotal);
+}
+
+function removeItemById(itemId, elementTotalPriceId) {
+    const removeItem = document.getElementById(itemId);
+    const elementTotalPrice = getTextElementValueById(elementTotalPriceId);
+
+    const subTotal = getTextElementValueById('sub-total');
+    const newSubTotal = subTotal - elementTotalPrice;
+    setTextElementValueById('sub-total', newSubTotal);
+
+    const newTaxAmount =  calculateTax(newSubTotal);
+
+    calculateFinalTotal(newSubTotal, newTaxAmount);
+
+    removeItem.remove();
 }

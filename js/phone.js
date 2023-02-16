@@ -15,3 +15,7 @@ document.getElementById('btn-phone-minus').addEventListener('click', function() 
 
     calculateTotal();
 });
+
+document.getElementById('remove-phone').addEventListener('click', function () {
+    removeItemById('item-phone-container', 'phone-total-price');
+});
