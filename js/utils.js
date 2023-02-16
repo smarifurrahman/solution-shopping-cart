@@ -26,6 +26,9 @@ function setItemTotalPrice(elementId, itemQuantity, perItemPrice) {
 
 function getTextElementValueById(elementId) {
     const element = document.getElementById(elementId);
+    if (element === null) {
+        return 0;
+    }
     return parseFloat(element.innerText);
 }
 
